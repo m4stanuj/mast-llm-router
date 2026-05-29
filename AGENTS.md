@@ -179,4 +179,4 @@ python src/llm_fallback.py
 
 ---
 
-*Part of the M4ST ecosystem — [github.com/mast-anuj](https://github.com/mast-anuj)*
+*Part of the M4ST ecosystem — [github.com/m4stanuj](https://github.com/m4stanuj)*

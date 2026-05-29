@@ -1,6 +1,6 @@
 # 🚀 MAST LLM Router — Intelligent LLM Request Distribution Engine
 
-[![CI](https://github.com/mast-anuj/mast-llm-router/actions/workflows/ci.yml/badge.svg)](https://github.com/mast-anuj/mast-llm-router/actions)
+[![CI](https://github.com/m4stanuj/mast-llm-router/actions/workflows/ci.yml/badge.svg)](https://github.com/m4stanuj/mast-llm-router/actions)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/MCP-compatible-green)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
@@ -210,7 +210,7 @@ vision_reason →  gemini-vision → openrouter-vision → together-vision → .
 ### 1. Clone
 
 ```bash
-git clone https://github.com/mast-anuj/mast-llm-router.git
+git clone https://github.com/m4stanuj/mast-llm-router.git
 cd mast-llm-router
 ```
 
@@ -425,6 +425,7 @@ M4ST OS
 |----------|-------------|
 | [📖 PRESENTATION.md](./PRESENTATION.md) | Full slide deck — algorithm walkthrough, benchmarks, use cases |
 | [📱 SOCIAL.md](./SOCIAL.md) | Social media kit — tweets, LinkedIn posts, hashtags, captions |
+| [🎬 DEMO_STORYBOARD.md](./DEMO_STORYBOARD.md) | GIF/video storyboard — task detection, fallback, cache hit |
 | [🤖 AGENTS.md](./AGENTS.md) | Guide for AI agents using this MCP server |
 | [📋 CHANGELOG.md](./CHANGELOG.md) | Version history and roadmap |
 | [📦 mast-llm-router.zip](./mast-llm-router.zip) | Downloadable ZIP archive |

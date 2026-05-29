@@ -386,7 +386,7 @@ async def llm_stream(params: StreamInput, ctx: Context) -> str:
                 "Content-Type": "application/json",
             }
             if "openrouter" in provider["name"]:
-                headers["HTTP-Referer"] = "https://github.com/mast-anuj/mast-llm-router"
+                headers["HTTP-Referer"] = "https://github.com/m4stanuj/mast-llm-router"
                 headers["X-Title"] = "MAST Router"
 
             payload = {

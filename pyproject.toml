@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "mast-llm-router"
@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 authors = [
-  { name = "Anuj", email = "contact@mast.dev" }
+  { name = "Anuj", email = "mast.jarvis@gmail.com" }
 ]
 keywords = [
   "llm", "mcp", "ai-agents", "local-ai", "free-tier",
@@ -45,18 +45,18 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mast-anuj/mast-llm-router"
-Repository = "https://github.com/mast-anuj/mast-llm-router"
-Issues = "https://github.com/mast-anuj/mast-llm-router/issues"
+Homepage = "https://github.com/m4stanuj/mast-llm-router"
+Repository = "https://github.com/m4stanuj/mast-llm-router"
+Issues = "https://github.com/m4stanuj/mast-llm-router/issues"
 
 [project.scripts]
 mast-router = "mast_llm_router.server:main"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools]
+packages = ["mast_llm_router"]
 
 [tool.setuptools.package-dir]
-"mast_llm_router" = "src"
+mast_llm_router = "src"
 
 [tool.ruff]
 line-length = 100
