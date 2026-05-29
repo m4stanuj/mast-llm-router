@@ -208,7 +208,7 @@ Prompt: "Explain transformer attention"
 │  🟢 HuggingFace       varies          Community models    │
 └────────────────────────────────────────────────────────────┘
 
-Total: 11 provider integrations · 50+ models/routes · $0/month
+Total: 13 provider routes · 50+ models/routes · $0/month
 ```
 
 ---
@@ -295,7 +295,7 @@ claude mcp add mast-router python $(pwd)/src/server.py
 ```
 ✅ v1.0 — Initial release with 8 providers, 6 chains
 ✅ v1.5 — SMART_KEY detection, HTTP transport
-✅ v2.0 — 11 provider integrations, 10 chains, semantic cache
+✅ v2.0 — 13 provider routes, 10 chains, semantic cache
 🔜 v2.5 — Streaming support
 🔜 v3.0 — Dynamic chain optimization (ML-based)
 🔜 v3.5 — Multi-user auth, usage analytics
@@ -361,7 +361,7 @@ Request Flow Visualization:
 ```
 🧵 MAST LLM Router — the $0/month AI router that never drops your request.
 
-11 provider integrations · 10 chains · 6 fallbacks each
+13 provider routes · 10 chains · 6 fallbacks each
 Auto-detects API keys by prefix
 Semantic caching at 0.82 threshold
 Runs on free tiers only
@@ -373,7 +373,7 @@ github.com/m4stanuj/mast-llm-router
 
 ### LinkedIn
 ```
-I built a task-aware LLM fallback router that connects 11 provider integrations with zero monthly cost.
+I built a task-aware LLM fallback router that connects 13 provider routes with zero monthly cost.
 
 The key insight? Instead of relying on one API key, route each request through an intelligent chain of 6 providers with automatic fallback on failure.
 

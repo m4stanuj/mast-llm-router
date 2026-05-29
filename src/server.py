@@ -40,7 +40,7 @@ mcp = FastMCP(
     "mast_router_mcp",
     instructions=(
         "MAST LLM Router: routes your prompt to the best free-tier AI model "
-        "based on task type. Supports 11 providers, 10 task chains, semantic "
+        "based on task type. Supports 13 provider routes, 10 task chains, semantic "
         "cache, and automatic fallback. Zero monthly cost. "
         "Use llm_detect_task to preview routing. "
         "Use llm_batch for parallel multi-prompt workflows. "

@@ -9,7 +9,7 @@
 
 `mast-llm-router` is a task-aware LLM fallback router exposed as an MCP server.
 It routes prompts to the best free-tier AI model based on task type, with automatic
-fallback across 11 providers and 10 task chains.
+fallback across 13 provider routes and 10 task chains.
 
 **Zero monthly cost. Zero vendor lock-in. Full local control.**
 

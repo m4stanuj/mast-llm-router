@@ -7,7 +7,7 @@
 ## Twitter/X Thread
 
 ```
-🧵 1/6 I built a $0/month LLM router that connects 11 provider integrations
+🧵 1/6 I built a $0/month LLM router that connects 13 provider routes
     with automatic fallback. Here's how it works:
 
 🧵 2/6 Instead of relying on ONE API key, the router chains
@@ -43,7 +43,7 @@ the constant need to switch between providers.
 I spent the last few weeks building a solution:
 
 MAST LLM Router — a task-aware fallback router that:
-• Distributes requests across 11 provider integrations
+• Distributes requests across 13 provider routes
 • Auto-detects API keys from their prefix
 • Falls through 6 models per chain on failure
 • Caches semantically similar prompts (0.82 threshold)
@@ -72,7 +72,7 @@ Hashtags:
 🔥 MAST LLM Router — #1 Free-Tier LLM Router
 
 ✨ Features:
-• 11 provider integrations • 10 task chains • 6 fallbacks per chain
+• 13 provider routes • 10 task chains • 6 fallbacks per chain
 • Semantic caching • Auto key detection • $0/month
 • MCP native • Docker-ready • fallback-first routing
 
@@ -84,7 +84,7 @@ Hashtags:
 ## Reddit / HackerNews Post
 
 ```
-Show HN: I built a free LLM router with 11 provider integrations and automatic failover
+Show HN: I built a free LLM router with 13 provider routes and automatic failover
 
 I got tired of hitting rate limits on individual providers, so I built a
 task-aware router that chains 6 providers per task type. If one fails,
@@ -93,7 +93,7 @@ the next takes over automatically.
 It costs $0/month — runs entirely on free-tier API quotas.
 
 Key features:
-• 11 provider integrations (Groq, Cerebras, Gemini, DeepSeek, OpenRouter, etc.)
+• 13 provider routes (Groq, Cerebras, Gemini, DeepSeek, OpenRouter, etc.)
 • 10 task chains (code, reason, speed, vision, hinglish, etc.)
 • SMART_KEY detection — paste any API key, provider auto-detected
 • Fuzzy semantic cache at 0.82 threshold

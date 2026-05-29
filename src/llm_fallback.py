@@ -164,6 +164,9 @@ _MISTRAL_SM   = _p("mistral_sm",  MISTRAL_KEYS, "mistral-small-latest",   "opena
 # xAI / Grok
 _GROK         = _p("grok",        GROKAI_KEYS,  "grok-3-mini",            "openai_compat", "https://api.x.ai/v1")
 
+# HuggingFace Inference Providers (OpenAI-compatible router)
+_HUGGINGFACE  = _p("huggingface", HUGGINGFACE_KEYS, "meta-llama/Llama-3.1-8B-Instruct", "openai_compat", "https://router.huggingface.co/v1")
+
 # OpenRouter free models
 _OR_DEFAULT   = _p("openrouter",  OPENROUTER_KEYS, "meta-llama/llama-3.3-70b-instruct:free",       "openai_compat", "https://openrouter.ai/api/v1")
 _OR_R1        = _p("or_r1",       OPENROUTER_KEYS, "deepseek/deepseek-r1:free",                     "openai_compat", "https://openrouter.ai/api/v1")
@@ -198,9 +201,9 @@ TASK_CHAINS = {
 }
 
 PROVIDERS = [
-    _GROQ, _CEREBRAS, _OR_NEMOTRON, _OR_MINIMAX, _GEMINI_F,
+    _GROQ, _CEREBRAS, _OR_NEMOTRON, _GEMINI_F,
     _SAMBANOVA, _OR_DEFAULT, _DEEPSEEK, _OR_KIMI_K2, _TOGETHER,
-    _NVIDIA_DSFL, _MISTRAL_SM,
+    _NVIDIA_DSFL, _MISTRAL_SM, _GROK, _HUGGINGFACE,
 ]
 
 # ── Task keyword auto-detection ───────────────────────────────────────

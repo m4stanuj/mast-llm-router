@@ -70,6 +70,9 @@ class TestProviderStructure:
     def test_minimum_provider_count(self):
         assert len(router.PROVIDERS) >= 10, f"Expected 10+ providers, got {len(router.PROVIDERS)}"
 
+    def test_public_provider_route_count(self):
+        assert len(router.PROVIDERS) == 13, f"Expected 13 provider routes, got {len(router.PROVIDERS)}"
+
     def test_required_fields(self):
         required = {"name", "model", "keys", "type"}
         for p in router.PROVIDERS:
@@ -95,6 +98,10 @@ class TestProviderStructure:
     def test_no_duplicate_provider_names(self):
         names = [p["name"] for p in router.PROVIDERS]
         assert len(names) == len(set(names)), f"Duplicate provider names: {names}"
+
+    def test_grok_and_huggingface_are_public_routes(self):
+        names = {p["name"] for p in router.PROVIDERS}
+        assert {"grok", "huggingface"} <= names
 
 
 # ═══════════════════════════════════════

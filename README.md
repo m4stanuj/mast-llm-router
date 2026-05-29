@@ -5,13 +5,13 @@
 [![MCP](https://img.shields.io/badge/MCP-compatible-green)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
 [![Cost](https://img.shields.io/badge/monthly%20cost-%240-success)](/#)
-[![Providers](https://img.shields.io/badge/providers-11-orange)](/#)
+[![Providers](https://img.shields.io/badge/providers-13-orange)](/#)
 [![PRESENTATION](https://img.shields.io/badge/view-Presentation-blueviolet)](PRESENTATION.md)
 [![SOCIAL](https://img.shields.io/badge/social-kit-ff69b4)](SOCIAL.md)
 [![Download](https://img.shields.io/badge/download-zip-success)](mast-llm-router.zip)
 [![Stars](https://img.shields.io/github/stars/m4stanuj/mast-llm-router?style=social)](https://github.com/m4stanuj/mast-llm-router)
 
-> **🏆 Task-aware LLM fallback router — 11 provider integrations · 10 chains · 6 fallbacks · $0/month**  
+> **🏆 Task-aware LLM fallback router — 13 provider routes · 10 chains · 6 fallbacks · $0/month**  
 > Works with Claude Code, Cursor, Windsurf, Continue.dev, Codex CLI, and any MCP-compatible client.
 
 ---
@@ -27,8 +27,8 @@
 ║   │ Detect  │   │ Select   │   │  Loop x6 │   │          │  ║
 ║   └─────────┘   └──────────┘   └──────────┘   └──────────┘  ║
 ║                                                              ║
-║   🔄 One fails → Next takes over → fallback-first routing   ║
-║   💰 11 integrations · 100% free-tier APIs · $0/month       ║
+║   🔄 One fails → Next takes over → resilient by design      ║
+║   💰 13 provider routes · free-tier APIs · $0/month         ║
 ║   🧠 Semantic caching · Auto key detection · MCP native     ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -40,10 +40,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Provider Integrations** | 11 (Groq, Cerebras, Gemini, DeepSeek, OpenRouter, SambaNova, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace) |
+| **Provider Routes** | 13 (Groq, Cerebras, Gemini, DeepSeek, OpenRouter, SambaNova, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace, Kimi K2, Nemotron) |
 | **Task Chains** | 10 (speed, reason, code, vision, research, write, agent, pentest, hinglish, vision_reason) |
 | **Fallback Depth** | 6 models per chain — auto-failover on 429/503/empty response |
-| **Reliability Strategy** | Best-first chain routing with automatic fallback across providers |
+| **Reliability Strategy** | Best-first chain routing with automatic fallback across provider routes |
 | **Cache Strategy** | Fuzzy semantic matching at 0.82 threshold with a 500-entry LRU cache |
 | **Monthly Cost** | **$0.00** (100% free-tier APIs) |
 | **Protocol** | MCP (Model Context Protocol) — stdio + HTTP |
@@ -155,7 +155,7 @@ Prompt ──▶ Embedding ──▶ Fuzzy Match (>0.82) ──▶ Cache Hit? �
 
 | Feature | Detail |
 |---|---|
-| **11 provider integrations** | Groq, Cerebras, Gemini, OpenRouter, SambaNova, DeepSeek, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace |
+| **13 provider routes** | Groq, Cerebras, Gemini, OpenRouter, SambaNova, DeepSeek, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace, Kimi K2, Nemotron |
 | **10 task chains** | speed, reason, code, vision, research, write, agent, pentest, hinglish, vision_reason |
 | **6 models per chain** | Best-first, auto-falls to next on failure |
 | **SMART_KEY detection** | Paste any API key — provider auto-detected by prefix |
@@ -425,7 +425,7 @@ M4ST OS
 ## 🏆 Why MAST LLM Router?
 
 ```
-✅ 11 provider integrations → Redundancy across free-tier LLM APIs
+✅ 13 provider routes → Redundancy across free-tier LLM APIs
 ✅ 10 task chains → Optimal model for every use case
 ✅ 6 fallbacks → Best-first recovery when providers fail
 ✅ $0/month → Free tiers only
@@ -443,13 +443,13 @@ M4ST OS
 
 ```markdown
 **Twitter/X:**
-🧵 I built a $0/month LLM router with 11 provider integrations and auto-fallback.
+🧵 I built a $0/month LLM router with 13 provider routes and auto-fallback.
 6 models per chain. Semantic cache. MCP native.
 github.com/m4stanuj/mast-llm-router
 #LLM #AI #OpenSource #MCP #Python
 
 **LinkedIn:**
-🏗️ MAST LLM Router — task-aware fallback router for 11 LLM provider integrations.
+🏗️ MAST LLM Router — task-aware fallback router for 13 LLM provider routes.
 100% free-tier. Zero config. Full code on GitHub.
 https://github.com/m4stanuj/mast-llm-router
 ```
