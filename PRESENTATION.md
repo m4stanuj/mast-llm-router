@@ -141,7 +141,7 @@ Request routed to chain: CODE
 Key metrics:
 • 6 providers per chain
 • Average 1.2 retries before success
-• 99.7% uptime across all chains
+• Fallback-first recovery across chains
 • Sub-second fallback switching
 ```
 
@@ -182,7 +182,7 @@ Prompt: "Explain transformer attention"
 
 • Cache size: 500 entries LRU
 • Similarity threshold: 0.82
-• Cache hit rate: ~34%
+• Cache hits return without another provider call
 • Latency savings: 1.2–3.5s per hit
 ```
 
@@ -206,10 +206,9 @@ Prompt: "Explain transformer attention"
 │  🟢 Mistral           varies          Mistral Large/Small │
 │  🟢 xAI/Grok          10 RPM          Grok-2              │
 │  🟢 HuggingFace       varies          Community models    │
-│  🟢 Sarvam AI         varies          Hinglish-optimized  │
 └────────────────────────────────────────────────────────────┘
 
-Total: 13 providers · 50+ models · $0/month
+Total: 11 provider integrations · 50+ models/routes · $0/month
 ```
 
 ---
@@ -217,7 +216,7 @@ Total: 13 providers · 50+ models · $0/month
 ## Slide 8: Performance Benchmarks
 
 ```
-Benchmark: 1000 requests, mixed workloads
+Benchmark template: 1000 requests, mixed workloads
 ─────────────────────────────────────────
 
 Metric                    Value
@@ -225,9 +224,9 @@ Metric                    Value
 Mean response time        1.87s
 P95 response time         4.21s
 Success rate (1st try)    76.3%
-Success rate (final)      99.7%
+Success rate (final)      Measure in your environment
 Avg fallback depth        1.4 providers
-Cache hit rate            34.2%
+Cache hit rate            Depends on prompt repetition
 Peak throughput           47 req/min
 Memory usage              ~45 MB
 Startup time              <500ms
@@ -259,7 +258,7 @@ Environment: RTX 2060 Super · 6.8GB VRAM
 │  → Automatic image analysis                            │
 │                                                        │
 │  🗣️ HINGLISH (Hindi-English)                           │
-│  → Route to Sarvam AI / Gemini Flash                   │
+│  → Route to NVIDIA/Sarvam-M / Gemini Flash             │
 │  → Natural code-mixed responses                        │
 └────────────────────────────────────────────────────────┘
 ```
@@ -296,7 +295,7 @@ claude mcp add mast-router python $(pwd)/src/server.py
 ```
 ✅ v1.0 — Initial release with 8 providers, 6 chains
 ✅ v1.5 — SMART_KEY detection, HTTP transport
-✅ v2.0 — 13 providers, 10 chains, semantic cache
+✅ v2.0 — 11 provider integrations, 10 chains, semantic cache
 🔜 v2.5 — Streaming support
 🔜 v3.0 — Dynamic chain optimization (ML-based)
 🔜 v3.5 — Multi-user auth, usage analytics
@@ -362,7 +361,7 @@ Request Flow Visualization:
 ```
 🧵 MAST LLM Router — the $0/month AI router that never drops your request.
 
-13 providers · 10 chains · 6 fallbacks each
+11 provider integrations · 10 chains · 6 fallbacks each
 Auto-detects API keys by prefix
 Semantic caching at 0.82 threshold
 Runs on free tiers only
@@ -374,11 +373,11 @@ github.com/m4stanuj/mast-llm-router
 
 ### LinkedIn
 ```
-I built a task-aware LLM fallback router that connects 13 providers with zero monthly cost.
+I built a task-aware LLM fallback router that connects 11 provider integrations with zero monthly cost.
 
 The key insight? Instead of relying on one API key, route each request through an intelligent chain of 6 providers with automatic fallback on failure.
 
-Stack: Python, FastMCP, 13 free-tier LLM APIs
+Stack: Python, FastMCP, free-tier LLM APIs
 GitHub: https://github.com/m4stanuj/mast-llm-router
 
 #ArtificialIntelligence #MachineLearning #OpenSource #LLM #Python #MCP

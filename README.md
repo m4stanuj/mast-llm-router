@@ -5,13 +5,13 @@
 [![MCP](https://img.shields.io/badge/MCP-compatible-green)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
 [![Cost](https://img.shields.io/badge/monthly%20cost-%240-success)](/#)
-[![Providers](https://img.shields.io/badge/providers-13-orange)](/#)
+[![Providers](https://img.shields.io/badge/providers-11-orange)](/#)
 [![PRESENTATION](https://img.shields.io/badge/view-Presentation-blueviolet)](PRESENTATION.md)
 [![SOCIAL](https://img.shields.io/badge/social-kit-ff69b4)](SOCIAL.md)
 [![Download](https://img.shields.io/badge/download-zip-success)](mast-llm-router.zip)
 [![Stars](https://img.shields.io/github/stars/m4stanuj/mast-llm-router?style=social)](https://github.com/m4stanuj/mast-llm-router)
 
-> **🏆 Task-aware LLM fallback router — 13 providers · 10 chains · 6 fallbacks · $0/month**  
+> **🏆 Task-aware LLM fallback router — 11 provider integrations · 10 chains · 6 fallbacks · $0/month**  
 > Works with Claude Code, Cursor, Windsurf, Continue.dev, Codex CLI, and any MCP-compatible client.
 
 ---
@@ -27,8 +27,8 @@
 ║   │ Detect  │   │ Select   │   │  Loop x6 │   │          │  ║
 ║   └─────────┘   └──────────┘   └──────────┘   └──────────┘  ║
 ║                                                              ║
-║   🔄 One fails → Next takes over → 99.7% success rate      ║
-║   💰 13 providers · 100% free-tier APIs · $0/month          ║
+║   🔄 One fails → Next takes over → fallback-first routing   ║
+║   💰 11 integrations · 100% free-tier APIs · $0/month       ║
 ║   🧠 Semantic caching · Auto key detection · MCP native     ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -40,11 +40,11 @@
 
 | Metric | Value |
 |--------|-------|
-| **Providers** | 13 (Groq, Cerebras, Gemini, DeepSeek, OpenRouter, SambaNova, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace, Sarvam AI) |
+| **Provider Integrations** | 11 (Groq, Cerebras, Gemini, DeepSeek, OpenRouter, SambaNova, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace) |
 | **Task Chains** | 10 (speed, reason, code, vision, research, write, agent, pentest, hinglish, vision_reason) |
 | **Fallback Depth** | 6 models per chain — auto-failover on 429/503/empty response |
-| **Success Rate** | 99.7% (after fallback) |
-| **Cache Hit Rate** | ~34% (fuzzy semantic matching at 0.82 threshold) |
+| **Reliability Strategy** | Best-first chain routing with automatic fallback across providers |
+| **Cache Strategy** | Fuzzy semantic matching at 0.82 threshold with a 500-entry LRU cache |
 | **Monthly Cost** | **$0.00** (100% free-tier APIs) |
 | **Protocol** | MCP (Model Context Protocol) — stdio + HTTP |
 | **Clients** | Claude Code, Cursor, Windsurf, Continue.dev, Codex CLI, Antigravity |
@@ -142,29 +142,20 @@ Prompt ──▶ Embedding ──▶ Fuzzy Match (>0.82) ──▶ Cache Hit? �
 
 ---
 
-## ✨ Features
+## ✨ Feature Highlights
 
-```
-User: "Write a Python script to scrape Hacker News"
-Router: Detected task → code
-Chain:  kimi-k2 → qwen3-coder → mimo-pro → nvidia-deepseek → deepseek → sambanova
-Result: Response from kimi-k2 in 1.2s (cache miss)
-```
-
-```
-User: "yeh kya hai samjhao"
-Router: Detected task → hinglish
-Chain:  sarvam → gemini-flash → groq-llama → cerebras → openrouter → mistral
-Result: Response in Hindi-English mix
-```
+- Task-aware chain selection for code, reasoning, research, writing, agents, vision, pentest, and Hinglish flows
+- Automatic fallback when a provider rate-limits, errors, or returns an empty response
+- SMART_KEY detection so mixed API keys can be pasted without manual provider mapping
+- Semantic cache for repeated or similar prompts, tuned with a 0.82 fuzzy-match threshold
 
 ---
 
-## Features
+## Feature Matrix
 
 | Feature | Detail |
 |---|---|
-| **13 providers** | Groq, Cerebras, Gemini, OpenRouter, SambaNova, DeepSeek, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace, Sarvam AI, Shuttle AI (Kimi K2) |
+| **11 provider integrations** | Groq, Cerebras, Gemini, OpenRouter, SambaNova, DeepSeek, Together, NVIDIA NIM, Mistral, xAI/Grok, HuggingFace |
 | **10 task chains** | speed, reason, code, vision, research, write, agent, pentest, hinglish, vision_reason |
 | **6 models per chain** | Best-first, auto-falls to next on failure |
 | **SMART_KEY detection** | Paste any API key — provider auto-detected by prefix |
@@ -434,12 +425,12 @@ M4ST OS
 ## 🏆 Why MAST LLM Router?
 
 ```
-✅ 13 providers → More redundancy than any competing router
+✅ 11 provider integrations → Redundancy across free-tier LLM APIs
 ✅ 10 task chains → Optimal model for every use case
-✅ 6 fallbacks → 99.7% success rate
+✅ 6 fallbacks → Best-first recovery when providers fail
 ✅ $0/month → Free tiers only
 ✅ SMART_KEY → Paste any key, auto-detected
-✅ Semantic cache → 34% of requests return instantly
+✅ Semantic cache → Repeated/similar prompts can return instantly
 ✅ MCP native → Works with every major AI coding tool
 ✅ Open source → MIT license, fork and build
 ```
@@ -452,13 +443,13 @@ M4ST OS
 
 ```markdown
 **Twitter/X:**
-🧵 I built a $0/month LLM router with 13 providers and auto-fallback.
+🧵 I built a $0/month LLM router with 11 provider integrations and auto-fallback.
 6 models per chain. Semantic cache. MCP native.
 github.com/m4stanuj/mast-llm-router
 #LLM #AI #OpenSource #MCP #Python
 
 **LinkedIn:**
-🏗️ MAST LLM Router — task-aware fallback router for 13 LLM providers.
+🏗️ MAST LLM Router — task-aware fallback router for 11 LLM provider integrations.
 100% free-tier. Zero config. Full code on GitHub.
 https://github.com/m4stanuj/mast-llm-router
 ```
@@ -478,3 +469,4 @@ MIT — use it, fork it, build on it.
 #LLM #AI #OpenSource #MCP #Python #MachineLearning #DeveloperTools
 #AIAgents #LLMRouter #FreeAPI #ArtificialIntelligence #PythonDev
 #ModelContextProtocol #LLMFallback #MultiProvider #AIIndex
+```
