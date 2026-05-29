@@ -1,0 +1,30 @@
+# Secrets — NEVER commit
+.env
+*.env
+secrets/
+
+# Cache
+mast_cache.json
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dist
+dist/
+build/
+*.egg-info/

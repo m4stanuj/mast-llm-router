@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "mast-llm-router"
+version = "6.0.0"
+description = "Task-aware LLM fallback router — 11 providers, 10 chains, $0/month. MCP server for Claude Code, Cursor, Codex and more."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+  { name = "Anuj", email = "contact@mast.dev" }
+]
+keywords = [
+  "llm", "mcp", "ai-agents", "local-ai", "free-tier",
+  "fallback", "router", "openai-compatible", "claude", "groq"
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "mcp[cli]>=1.9.0",
+  "requests>=2.31.0",
+  "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+langchain = [
+  "langchain-openai>=0.1.0",
+  "langchain-google-genai>=1.0.0",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/mast-anuj/mast-llm-router"
+Repository = "https://github.com/mast-anuj/mast-llm-router"
+Issues = "https://github.com/mast-anuj/mast-llm-router/issues"
+
+[project.scripts]
+mast-router = "mast_llm_router.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"mast_llm_router" = "src"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

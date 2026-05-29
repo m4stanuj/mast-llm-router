@@ -1,0 +1,128 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-check:
+    name: Lint & Import Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install ruff
+
+      - name: Ruff lint
+        run: ruff check src/server.py --ignore E501,F401
+
+      - name: Syntax check — server.py
+        run: python -m py_compile src/server.py && echo "✅ server.py syntax OK"
+
+      - name: Syntax check — llm_fallback.py
+        run: python -m py_compile src/llm_fallback.py && echo "✅ llm_fallback.py syntax OK"
+
+      - name: Import check
+        run: |
+          cd src
+          python -c "
+          import sys, types
+
+          # Stub out external deps that need real keys
+          for mod in ['requests', 'langchain_openai', 'langchain_google_genai']:
+              sys.modules[mod] = types.ModuleType(mod)
+
+          import llm_fallback
+          print('✅ llm_fallback imported OK')
+          print(f'   Providers: {len(llm_fallback.PROVIDERS)}')
+          print(f'   Chains:    {list(llm_fallback.TASK_CHAINS.keys())}')
+          "
+
+      - name: MCP tool list check
+        run: |
+          cd src
+          python -c "
+          import sys, types, os
+          os.environ.setdefault('SMART_KEY_1', 'test')
+
+          for mod in ['requests', 'langchain_openai', 'langchain_google_genai']:
+              sys.modules[mod] = types.ModuleType(mod)
+
+          # Patch mcp import to avoid stdio conflicts
+          import server
+          tools = [t for t in dir(server) if callable(getattr(server, t, None))]
+          print('✅ server.py loaded OK')
+          "
+
+  security-scan:
+    name: Secret Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check no real keys committed
+        run: |
+          # Fail if any file contains real-looking API keys
+          echo "Scanning for accidentally committed keys..."
+
+          PATTERNS=(
+            "gsk_[A-Za-z0-9]{40}"
+            "csk-[A-Za-z0-9]{40}"
+            "AIza[A-Za-z0-9_-]{35}"
+            "sk-or-v1-[A-Za-z0-9]{60}"
+            "nvapi-[A-Za-z0-9_-]{80}"
+            "xai-[A-Za-z0-9]{50}"
+            "hf_[A-Za-z0-9]{30}"
+          )
+
+          FOUND=0
+          for pattern in "${PATTERNS[@]}"; do
+            if grep -rE "$pattern" src/ .env.example 2>/dev/null | grep -v "PLACEHOLDER\|example\|YOUR_KEY"; then
+              echo "❌ Possible API key found matching: $pattern"
+              FOUND=1
+            fi
+          done
+
+          if [ $FOUND -eq 0 ]; then
+            echo "✅ No API keys detected in source files"
+          else
+            exit 1
+          fi
+
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    needs: lint-and-check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install with dev extras
+        run: pip install -r requirements.txt pytest pytest-asyncio
+
+      - name: Run tests
+        run: |
+          if [ -d "tests" ] && [ "$(ls -A tests/)" ]; then
+            pytest tests/ -v --tb=short
+          else
+            echo "⚠️  No tests yet — skipping (add tests/ directory)"
+          fi

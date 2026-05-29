@@ -1,0 +1,10 @@
+{
+  "_comment": "Cursor / Windsurf / Continue.dev — add to your MCP settings",
+  "name": "mast-router",
+  "type": "stdio",
+  "command": "python",
+  "args": ["/ABSOLUTE/PATH/TO/mast-llm-router/src/server.py"],
+  "env": {
+    "MAST_CONFIG": "/ABSOLUTE/PATH/TO/mast-llm-router/config"
+  }
+}
