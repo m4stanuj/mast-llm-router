@@ -66,6 +66,18 @@ Built as part of [M4ST](https://github.com/m4stanuj) — a personal AI OS runnin
 
 ---
 
+## M4ST Ecosystem
+
+| Repo | Role |
+|------|------|
+| [MAST](https://github.com/m4stanuj/MAST) | Flagship AI operator stack |
+| [mast-llm-router](https://github.com/m4stanuj/mast-llm-router) | This repo: task-aware LLM fallback router |
+| [semantic-cache-engine](https://github.com/m4stanuj/semantic-cache-engine) | Standalone semantic cache module |
+| [openwork](https://github.com/m4stanuj/openwork) | Universal MCP workspace/config layer |
+| [m4stclaw-legacy-archive](https://github.com/m4stanuj/m4stclaw-legacy-archive) | Historical archive and lineage |
+
+---
+
 ## 🎬 Quick Demo
 
 ```

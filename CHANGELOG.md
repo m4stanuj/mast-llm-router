@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [6.0.1] — 2026-05-29
+
+### Added
+- M4ST ecosystem links in README.
+
+### Changed
+- Public positioning now consistently says 13 provider routes.
+
+---
+
 ## [6.0.0] — 2026-05-29
 
 ### Added
@@ -32,7 +42,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - Renamed project from `Nexus` → `M4ST` → `mast-llm-router` (public release)
-- Provider count: 7 → 11
+- Provider route count: 7 → 13
 - Task chains: 6 → 10
 - Keys per provider: up to 20 (was 10)
 - Cache size: 200 → 500 entries

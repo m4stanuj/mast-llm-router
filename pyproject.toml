@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mast-llm-router"
-version = "6.0.0"
+version = "6.0.1"
 description = "Task-aware LLM fallback router — 13 provider routes, 10 chains, $0/month. MCP server for Claude Code, Cursor, Codex and more."
 readme = "README.md"
 license = { text = "MIT" }
