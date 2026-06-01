@@ -14,6 +14,7 @@ for mod in ["requests", "langchain_openai", "langchain_google_genai"]:
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 import llm_fallback as router
+import mast_llm_router
 
 
 # ═══════════════════════════════════════
@@ -215,3 +216,8 @@ class TestStatusReport:
         report = router.status_report()
         # cache_stats() output is embedded in status
         assert any(word in report.lower() for word in ["cache", "hit", "entries"])
+
+
+class TestPackageMetadata:
+    def test_package_version_matches_release(self):
+        assert mast_llm_router.__version__ == "6.0.1"

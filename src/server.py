@@ -35,6 +35,11 @@ except ImportError as e:
     log.error(f"Failed to import llm_fallback: {e}")
     sys.exit(1)
 
+try:
+    from mast_llm_router import __version__
+except ImportError:
+    __version__ = "6.0.1"
+
 # ── FastMCP init ──────────────────────────────────────────────────────
 mcp = FastMCP(
     "mast_router_mcp",
@@ -819,7 +824,7 @@ Examples:
         help="Run as HTTP server instead of stdio",
     )
     parser.add_argument("--port", type=int, default=8000, help="HTTP port (default: 8000)")
-    parser.add_argument("--version", action="version", version="mast-llm-router 6.0.0")
+    parser.add_argument("--version", action="version", version=f"mast-llm-router {__version__}")
     args = parser.parse_args()
 
     if args.http:
